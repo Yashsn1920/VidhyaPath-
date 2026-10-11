@@ -1,0 +1,293 @@
+/* VidyaPath UI: neo-brutalist visual system adapted from the Campus Zero prototype */
+body {
+    background-image: radial-gradient(#000 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: #f1f5f9;
+}
+
+h1, h2, h3, button {
+    letter-spacing: -0.05em;
+}
+
+.nav-btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #000;
+    color: #fff;
+    transform: rotate(-2deg);
+}
+
+.nav-btn.active {
+    background-color: #FFF500;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0px 0px #000;
+    transform: translate(-2px, -2px);
+}
+
+@keyframes slamIn {
+    0% { opacity: 0; transform: scale(0.98) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-slam {
+    animation: slamIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Shared button: black block that flattens on hover */
+.btn {
+    background: #121212;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 0 #000;
+    transition: all 0.15s;
+}
+
+.btn:hover:not(:disabled) {
+    background: #FFF500;
+    color: #000;
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.btn-light {
+    background: #fff;
+    color: #000;
+}
+
+.card {
+    background: #fff;
+    border: 4px solid #000;
+    box-shadow: 8px 8px 0 0 #000;
+}
+
+.field {
+    width: 100%;
+    border: 3px solid #000;
+    padding: 0.6rem;
+    background: #fff;
+    font-family: 'Space Mono', monospace;
+}
+
+.field:focus {
+    outline: none;
+    box-shadow: 4px 4px 0 0 #FF00D6;
+}
+
+.chip {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Mastery / risk / trust bar */
+.meter {
+    height: 14px;
+    border: 2px solid #000;
+    background: #fff;
+}
+
+.meter > span {
+    display: block;
+    height: 100%;
+}
+
+.diagram {
+    overflow-x: auto;
+}
+
+.diagram svg {
+    display: block;
+    margin: 0 auto;   /* centred when narrow; wide diagrams start at the left edge and scroll */
+    height: auto;
+}
+
+/* ---------- Navigation: sidebar (desktop) and bottom tab bar (mobile) ---------- */
+.side-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.75rem;
+    border: 3px solid transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.15s;
+}
+
+.side-item:hover {
+    border-color: #000;
+    background: #fff;
+}
+
+.side-item.active {
+    background: #FFF500;
+    border-color: #000;
+    box-shadow: 4px 4px 0 0 #000;
+    transform: translate(-2px, -2px);
+}
+
+.step-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    background: #fff;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.side-item.active .step-num {
+    background: #121212;
+    color: #FFF500;
+}
+
+.side-sub {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: none;
+    color: #4b5563;
+}
+
+.tab-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 0;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-right: 2px solid #000;
+}
+
+.tab-item:last-child {
+    border-right: none;
+}
+
+.tab-item.active {
+    background: #FFF500;
+}
+
+.role-switch a {
+    padding: 0.35rem 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid #000;
+}
+
+.role-switch a.on {
+    background: #121212;
+    color: #fff;
+}
+
+/* ---------- Brand: round book-and-magnifier emblem + VIDYA [PATH] wordmark ---------- */
+.vp-mark {
+    width: 3.1rem;
+    height: 3.1rem;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.vp-logo:hover .vp-mark {
+    transform: rotate(-8deg) scale(1.05);
+}
+
+.vp-word {
+    line-height: 1;
+}
+
+.vp-word .font-display {
+    font-size: 1.45rem;
+    letter-spacing: -0.03em;
+}
+
+.vp-path {
+    display: inline-block;
+    margin-left: 0.25rem;
+    padding: 0.1rem 0.4rem 0.15rem;
+    background: #121212;
+    color: #fff;
+    border: 2px solid #121212;
+    box-shadow: 3px 3px 0 0 #FFF500;   /* the one accent, from the site palette */
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.vp-logo:hover .vp-path {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 0 #FF00D6;
+}
+
+.vp-tagline {
+    margin-top: 0.35rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4b5563;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 639px) {
+    /* Top bar on two rows: logo, role switch, profile and logout; then the course (and student) pickers */
+    .top-bar > div {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 4rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+    .top-bar .nav-group { display: contents; }
+    .top-bar .vp-logo { margin-right: auto; }
+    .top-bar .vp-mark { width: 2.5rem; height: 2.5rem; }
+    .top-bar > div:has(.course-pick)::after { content: ""; order: 5; flex-basis: 100%; height: 0; }  /* line break */
+    .top-bar .course-pick,
+    .top-bar .student-pick { order: 6; flex: 1 1 0; min-width: 0; margin: 0; }
+    .top-bar .course-pick select,
+    .top-bar .student-pick select { width: 100% !important; max-width: none; }
+    main { padding-top: calc(var(--nav-h, 4rem) + 1.5rem) !important; }
+    .lesson-nav { top: var(--nav-h, 4rem) !important; }
+
+    .tab-item { font-size: 0.75rem; padding: 0.45rem 0; }
+}
+
+/* ---------- Touch screens: targets big enough for a finger ---------- */
+@media (pointer: coarse) {
+    button.chip, a.chip, label.chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        min-height: 2.5rem;
+    }
+    .role-switch a { display: inline-flex; align-items: center; min-height: 2.5rem; }
+    .field { min-height: 2.75rem; }
+}
+
+/* "No data" fill: diagonal hatching instead of a colour (placement readiness bar, status chips) */
+.hatch {
+    background: repeating-linear-gradient(45deg, #fff 0 6px, #cbd5e1 6px 9px);
+}
